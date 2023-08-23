@@ -13,6 +13,7 @@ class Company(models.Model):
         choices=[('active', 'Active'), ('inactive', 'Inactive')],
         default='inactive'
     )
+
     class Meta:
         verbose_name = 'Company'
         verbose_name_plural = 'Companies'
@@ -86,6 +87,8 @@ class DeviceAssignment(models.Model):
         status = "returned" if self.return_date else "assigned"
         date = self.return_date or self.assigned_date
         return f"{self.device.name} {status} by {self.employee.user.get_username()} at {date.ctime()}"
+
+
 def register_company(company_data):
     # Placeholder for registering a company
     company = Company.objects.create(**company_data)
