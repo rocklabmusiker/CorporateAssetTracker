@@ -26,10 +26,6 @@ urlpatterns = [
 
     # for admin
     path("admin/", admin.site.urls),
-
-    # for api authentications
-    path('api-auth/', include('rest_framework.urls')),
-
     # for swagger
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
     # Optional UI:
